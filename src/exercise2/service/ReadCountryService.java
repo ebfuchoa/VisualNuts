@@ -71,7 +71,7 @@ public class ReadCountryService {
 	private List<String> getGermanSpeakingCountries(Object obj) {
 		
 		JSONArray countriesList = (JSONArray) obj;
-		List<String> GermanSpeaker = new ArrayList<String>();
+		List<String> speakGermanList = new ArrayList<String>();
 		for (Object object : countriesList) {
 
 			JSONObject countries = (JSONObject) object;
@@ -80,8 +80,8 @@ public class ReadCountryService {
 			
 			for (Object language : languagesList) {
 				if ("German".equals(language)) {
-					if (!GermanSpeaker.contains(country)) {
-						GermanSpeaker.add(country);
+					if (!speakGermanList.contains(country)) {
+						speakGermanList.add(country);
 					}
 
 				}
@@ -89,9 +89,9 @@ public class ReadCountryService {
 
 		}
 		
-		if(GermanSpeaker.isEmpty())
-			GermanSpeaker.add("There is no country that speaks the german language");
+		if(speakGermanList.isEmpty())
+			speakGermanList.add("There is no country that speaks the german language");
 		
-		return GermanSpeaker;
+		return speakGermanList;
 	}
 }
